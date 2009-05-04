@@ -1,0 +1,11 @@
+<html>
+	<head>
+		<title>Admin</title>
+		<%= javascript_include_tag 'jquery', 'admin' %>
+		<%= stylesheet_link_tag 'admin' %>
+	</head>
+	<body>
+		<div><%= link_to 'Orders', admin_orders_path %> | <%= link_to "Products", admin_products_path %> | <%= link_to "Configuration", admin_configurations_path %></div>
+		<%= yield %>
+	</body>
+<html>

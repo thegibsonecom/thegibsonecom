@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  inventory_id: MyString
+  weight: 1.5
+  weight_type_id: 1
+  active: false
+
+two:
+  name: MyString
+  description: MyText
+  inventory_id: MyString
+  weight: 1.5
+  weight_type_id: 1
+  active: false

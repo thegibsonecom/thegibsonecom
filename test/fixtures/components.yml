@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  active: false
+  description: MyText
+  module_name: MyString
+  version: 1.5
+
+two:
+  name: MyString
+  active: false
+  description: MyText
+  module_name: MyString
+  version: 1.5

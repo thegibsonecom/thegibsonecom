@@ -1,0 +1,9 @@
+<h1>New Product</h1>
+<% form_for [:admin,@product] do |f| %>
+<p>Name:<%= f.text_field :name %></p>
+<p>Description: <%= f.text_area :description %></p>
+<p>Weight: <%= f.text_field :weight %></p>
+<p>Product Id: <%= f.text_field :inventory_id %></p>
+<%= f.submit %>
+<% end %>
+
