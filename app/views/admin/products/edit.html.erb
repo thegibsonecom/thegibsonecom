@@ -1,2 +1,11 @@
-<h1>Admin::Products#edit</h1>
-<p>Find me in app/views/admin/products/edit.html.erb</p>
+<h1>Edit Product</h1>
+<% form_for [:admin,@product] do |f| %>
+<%= f.error_messages %>
+<p>Name:<%= f.text_field :name %></p>
+<p>Description: <%= f.text_area :description %></p>
+<p>Weight: <%= f.text_field :weight %></p>
+<p>Product Id: <%= f.text_field :inventory_id %></p>
+<p><%= f.check_box :active %><%= f.label :active, "Active" %></p>
+<%= f.submit "Update" %>
+<% end %>
+

@@ -1,1 +1,6 @@
-<%= link_to product.name, admin_product_path(product) %> <%= link_to "Edit", edit_admin_product_path(product) %><br/>
+<tr>
+<td><%= product.id %></td>
+<td><%= link_to product.name, admin_product_path(product) %></td>
+<td><%= link_to "Edit", edit_admin_product_path(product) %><td>
+<td><%= product.active ? "Active" : "Inactive" %></td>
+</tr>

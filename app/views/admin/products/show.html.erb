@@ -1,2 +1,26 @@
-<%= link_to "General", "", :id => 'product_general_tab' %> | <%= link_to "Options", "", :id => 'product_options_tab' %>
+<span>General</span> | <span><%= link_to "Options", "", :id => 'product_options_tab' %></span>
+<%= render :partial => "layouts/flash_bar" %>
+<p> 
+<b>Title:</b> 
+<%= @product.name %> 
+</p> 
+<p> 
+<b>Description:</b> 
+<%= @product.description %> 
+</p> 
+<p> 
+<b>Weight:</b> 
+<%= @product.weight %> 
+</p> 
+<p> 
+<b>Product ID:</b> 
+<%= @product.inventory_id %> 
+</p>
+<p> 
+<b>Active Status:</b> 
+<%= @product.active ? "Active" : "Inactive" %> 
+</p>
+<%= link_to 'Edit', edit_admin_product_path(@product) %> | 
+<%= link_to 'Back', admin_products_path %>
+
 

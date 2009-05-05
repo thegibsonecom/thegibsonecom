@@ -1,4 +1,6 @@
 class Admin::ProductsController < Admin::AdminController
+  before_filter :load_product, :except => [:new,:index,:create]
+  
   def index
     @products = Product.find(:all)
   end
@@ -23,5 +25,20 @@ class Admin::ProductsController < Admin::AdminController
 
   def edit
   end
+  
+  def update
+    if @product.update_attributes(params[:product])
+      flash[:notice] = "Product successfully updated"
+      redirect_to admin_product_path(@product)
+    else
+      render :action => :edit
+    end
+  end
 
+private
+  
+  def load_product
+    @product = Product.find(params[:id])
+  end
+  
 end
