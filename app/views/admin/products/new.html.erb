@@ -7,5 +7,6 @@
 <p>Product Id: <%= f.text_field :inventory_id %></p>
 <p><%= f.check_box :active %><%= f.label :active, "Active" %></p>
 <%= f.submit "Save"%>
+<%= render :partial => "admin/upload/upload" %>
 <% end %>
 

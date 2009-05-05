@@ -1,5 +1,6 @@
-<span>General</span> | <span><%= link_to "Options", "", :id => 'product_options_tab' %></span>
+<span>General</span> | <span><%= link_to "Options", "" %></span> | <span><%= link_to "Images", admin_upload_path %></span>
 <%= render :partial => "layouts/flash_bar" %>
+<div id="General">
 <p> 
 <b>Title:</b> 
 <%= @product.name %> 
@@ -22,5 +23,16 @@
 </p>
 <%= link_to 'Edit', edit_admin_product_path(@product) %> | 
 <%= link_to 'Back', admin_products_path %>
+</div>
 
+<div id="Options">
+	
+</div>
 
+<div id="Images">	
+<% @product.product_images.each do |image| %>	
+<%= link_to image_tag(image.file_name(:thumb)), image.file_name %><br />
+<%= image_tag(image.file_name) %><br />
+<%= image.name %>
+<% end %>
+</div>

@@ -30,6 +30,7 @@ ActionController::Routing::Routes.draw do |map|
       admin.resources :products
       admin.resources :components
       admin.resources :configurations, :controller => :configuration
+      admin.resources :upload, :action => :upload
     end
   
   map.connect 'admin', :controller => 'admin/orders', :action => :index

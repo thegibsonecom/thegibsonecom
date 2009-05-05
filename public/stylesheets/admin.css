@@ -1,15 +1,13 @@
-<style>
-
-body{font-family:arial;font-size:10px;color:#ccc;background-color:#555}
+body{font-family:arial;font-size:14px;color:#ccc;background-color:#555}
 a {color:#ccc;text-decoration:none;}
-a:hover {color:#ccc;text-decoration:none}
+a:hover {color:black;text-decoration:none}
 
 #tabMenu {margin:0;padding:0 0 0 15px;list-style:none;}
 #tabMenu li {float:left;height:32px;width:39px;cursor:pointer;cursor:hand;padding:8px;}
 
 span {color:black;}
 span.mouseover {background-color:#555;color:white;}
-span.mouseout {background-color:white;color:black;}
+span.mouseout {background-color:#555;color:black;}
 span.selected {background-color:#555;color:white;}
 
 li.mouseover {background-position:0 0;}
@@ -31,4 +29,3 @@ li.selected {background-position:0 0;}
 .boxBody div li {border-bottom:1px dotted #8e8e8e; padding:4px 0;cursor:hand;cursor:pointer;color:white;}
 .boxBody div ul li.last {border-bottom:none}
 .boxBody div li span {font-size:8px;font-style:italic; color:#888;}
-</style>

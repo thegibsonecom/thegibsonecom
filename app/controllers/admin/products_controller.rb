@@ -6,10 +6,16 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def show
+  
   end
 
   def new
     @product = Product.new
+  end
+  
+  def destroy
+    @product.destroy
+    redirect_to admin_products_path
   end
   
   def create

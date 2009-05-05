@@ -3,4 +3,5 @@
 <td><%= link_to product.name, admin_product_path(product) %></td>
 <td><%= link_to "Edit", edit_admin_product_path(product) %><td>
 <td><%= product.active ? "Active" : "Inactive" %></td>
+<td><%= link_to 'Destroy', [:admin, product], :confirm => 'Are you sure?', :method => :delete %></td>
 </tr>
