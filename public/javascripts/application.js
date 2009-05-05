@@ -1,2 +1,10 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$('document').ready(function(){ 
+	setupLinks();
+});
+
+function setupLinks () {
+    $('.product_div').click(function(){
+        id = this.id.split('_');
+        window.location = '/products/' + id[1];
+    })
+}
