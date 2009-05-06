@@ -27,7 +27,9 @@ ActionController::Routing::Routes.draw do |map|
   # Sample resource route within a namespace:
     map.namespace :admin do |admin|
       admin.resources :orders
-      admin.resources :products
+      admin.resources :products do |product|
+        product.resources :product_images, :controller => :upload
+      end
       admin.resources :components
       admin.resources :configurations, :controller => :configuration
       admin.resources :upload, :action => :upload

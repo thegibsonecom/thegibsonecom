@@ -1,10 +1,7 @@
 <h1>Upload Images</h1>
 <%= error_messages_for :product_images %>
-<% form_for(:product_images, :url => { :action => "create" }, :html => { :multipart => true }) do |f| %>
+<% fields_for @product.product_images.new do |i| %>
 <p>
-<%= f.file_field :uploaded_data %>
-</p>
-<p>
-<%= submit_tag "Create" %>
+<%= i.file_field :uploaded_data %>
 </p>
 <% end %>

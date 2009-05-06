@@ -5,6 +5,8 @@ a:hover {color:black;text-decoration:none}
 #tabMenu {margin:0;padding:0 0 0 15px;list-style:none;}
 #tabMenu li {float:left;height:32px;width:39px;cursor:pointer;cursor:hand;padding:8px;}
 
+.product_tab_label {cursor: pointer;}
+
 span {color:black;}
 span.mouseover {background-color:#555;color:white;}
 span.mouseout {background-color:#555;color:black;}

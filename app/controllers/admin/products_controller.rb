@@ -22,6 +22,7 @@ class Admin::ProductsController < Admin::AdminController
     @product = Product.new(params[:product])
     
     if @product.save
+      @product.product_image=(params[:product_image])
       flash[:notice] = "Product successfully created"
       redirect_to admin_product_path(@product)
     else

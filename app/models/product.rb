@@ -5,4 +5,8 @@ class Product < ActiveRecord::Base
   has_many :product_images
   
   named_scope :find_featured, :conditions => 'is_featured IS true AND active IS true'
+  
+  def product_image=(image)
+    product_images.create(image)
+  end
 end

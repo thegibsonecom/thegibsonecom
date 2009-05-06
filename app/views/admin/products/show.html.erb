@@ -1,38 +1,40 @@
-<span>General</span> | <span><%= link_to "Options", "" %></span> | <span><%= link_to "Images", admin_upload_path %></span>
+<span id='general_span' class='product_tab_label'>General</span> | <span id='options_span' class='product_tab_label'>Options</span> | <span id='images_span' class='product_tab_label'>Images</span>
 <%= render :partial => "layouts/flash_bar" %>
-<div id="General">
-<p> 
-<b>Title:</b> 
-<%= @product.name %> 
-</p> 
-<p> 
-<b>Description:</b> 
-<%= @product.description %> 
-</p> 
-<p> 
-<b>Weight:</b> 
-<%= @product.weight %> 
-</p> 
-<p> 
-<b>Product ID:</b> 
-<%= @product.inventory_id %> 
-</p>
-<p> 
-<b>Active Status:</b> 
-<%= @product.active ? "Active" : "Inactive" %> 
-</p>
-<%= link_to 'Edit', edit_admin_product_path(@product) %> | 
-<%= link_to 'Back', admin_products_path %>
+<div id="general" class='product_tab'>
+	<p> 
+		<b>Title:</b> 
+		<%= @product.name %> 
+	</p> 
+	<p> 
+		<b>Description:</b> 
+		<%= @product.description %> 
+	</p> 
+	<p> 
+		<b>Weight:</b> 
+		<%= @product.weight %> 
+	</p> 
+	<p> 
+		<b>Product ID:</b> 
+		<%= @product.inventory_id %> 
+	</p>
+	<p> 
+		<b>Active Status:</b> 
+		<%= @product.active ? "Active" : "Inactive" %> 
+	</p>
+
+	<%= link_to 'Edit', edit_admin_product_path(@product) %> | 
+	<%= link_to 'Back', admin_products_path %>
 </div>
 
-<div id="Options">
+<div id="options" style='display: none;' class='product_tab'>
 	
 </div>
 
-<div id="Images">	
-<% @product.product_images.each do |image| %>	
-<%= link_to image_tag(image.file_name(:thumb)), image.file_name %><br />
-<%= image_tag(image.file_name) %><br />
-<%= image.name %>
-<% end %>
+<div id="images" style='display: none;' class='product_tab'>
+	<%= "There are no images for this product, upload one now!" if @product.product_images.blank? %>	
+	<%= render :partial => 'product_image', :collection => @product.product_images %>
+	<% form_for [:admin, @product, @product.product_images.new], :html => { :multipart => true } do |f| %>
+		<%= f.file_field :uploaded_data %><br/>
+		<%= f.submit "Upload Image" %>
+	<% end %>
 </div>

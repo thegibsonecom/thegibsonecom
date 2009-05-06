@@ -1,3 +1,4 @@
 <div id='product_<%= product.id %>' class='product_div'>
+	<%= image_tag product.product_images.first.public_file_name(:thumb) unless product.product_images.blank? %>
 	<%= link_to product.name, product_path(product) %>
 </div>
