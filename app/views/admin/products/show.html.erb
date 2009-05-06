@@ -32,9 +32,12 @@
 
 <div id="images" style='display: none;' class='product_tab'>
 	<%= "There are no images for this product, upload one now!" if @product.product_images.blank? %>	
+	<table>
 	<%= render :partial => 'product_image', :collection => @product.product_images %>
+	</table><br /><br />
 	<% form_for [:admin, @product, @product.product_images.new], :html => { :multipart => true } do |f| %>
-		<%= f.file_field :uploaded_data %><br/>
+		Image: <%= f.file_field :uploaded_data %><br/><br />
+		Description: <%= f.text_field :name %><br /><br />
 		<%= f.submit "Upload Image" %>
 	<% end %>
 </div>
