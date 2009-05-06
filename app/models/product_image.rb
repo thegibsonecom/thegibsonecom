@@ -4,7 +4,8 @@ class ProductImage < ActiveRecord::Base
                    :path_prefix => 'public/uploads',
                    :max_size => 3000.kilobytes,
                    :resize_to => '320x200>',
-                   :thumbnails => { :thumb => '100x100>' }
+                   :thumbnails => { :thumb => '100x100>' },
+                   :processor => :rmagick
 
   validates_as_attachment           
   

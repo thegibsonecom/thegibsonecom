@@ -1,2 +1,1 @@
-<%= link_to image_tag(product_image.public_filename(:thumb)), product_image.public_filename %><br />
-<%= product_image.name %>
+<%= link_to image_tag(product_image.thumbnails.first), product_image.public_filename %> <%= link_to "[x] remove", admin_product_product_image_path(@product, product_image), :method => :delete %> <br />

@@ -15,7 +15,13 @@ class Admin::UploadController < Admin::AdminController
       end
   end
   
-  private
+  def destroy
+    @product_image = ProductImage.find(params[:id])
+    @product_image.destroy
+    redirect_to admin_product_path(@product)
+  end
+  
+  private  
     def load_product
       @product = Product.find(params[:product_id])
     end
