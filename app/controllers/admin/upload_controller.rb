@@ -9,7 +9,7 @@ class Admin::UploadController < Admin::AdminController
     @product_image = @product.product_images.new(params[:product_image])
     if @product_image.save
         flash[:notice] = 'Product image was successfully created.'
-        redirect_to admin_product_path(@product)     
+        redirect_to admin_product_path(@product, :anchor => "?tab=images")     
       else
         render :action => :new
       end
@@ -18,7 +18,7 @@ class Admin::UploadController < Admin::AdminController
   def destroy
     @product_image = ProductImage.find(params[:id])
     @product_image.destroy
-    redirect_to admin_product_path(@product)
+    redirect_to admin_product_path(@product, :anchor => "?tab=images")
   end
   
   private  

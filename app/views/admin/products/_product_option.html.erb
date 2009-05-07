@@ -1,0 +1,6 @@
+<tr>
+	<% product_option.product_attribute_values.each do |value| %>
+		<td><%= value.name %></td>
+	<% end %>
+	<td><%= product_option.quantity %></td>
+</tr>

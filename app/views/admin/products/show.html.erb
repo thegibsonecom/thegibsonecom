@@ -21,13 +21,46 @@
 		<b>Active Status:</b> 
 		<%= @product.active ? "Active" : "Inactive" %> 
 	</p>
+	<h4>Product Attributes</h4>
+	<div id='product_attributes'>
+		<%= render :partial => 'product_attribute', :collection => @product.product_attributes %>
+	</div>
+	<h3>Add new attribute:</h3>
+	<% form_for [:admin, @product, @product.product_attributes.new], :html => {:id => "product_attribute_ajax_form"} do |f| %>
+		Name:<%= f.text_field :name %>
+		<%= f.submit "Save" %>
+	<% end %>
 
 	<%= link_to 'Edit', edit_admin_product_path(@product) %> | 
 	<%= link_to 'Back', admin_products_path %>
 </div>
 
 <div id="options" style='display: none;' class='product_tab'>
-	
+
+	<h4>Product Variations</h4>
+	<table>
+		<thead>
+			<% @product.product_attributes.each do |attribute| %>
+				<th>
+					<%= attribute.name %>
+				</th>
+			<% end %>
+			<th>Quantity</th>
+		</thead>
+		<tbody id='product_options'>
+			<%= render :partial => 'product_option', :collection => @product.product_options %>
+		</tbody>
+	</table>
+	<h3>Add new variation:</h3>
+	<% form_for [:admin, @product, @product.product_options.new], :html => {:id => "product_option_ajax_form"}  do |f| %>
+		<% @product.product_attributes.each do |a| %>
+			<% fields_for "product_option[product_attribute][#{a.id}]",a.product_attribute_values.new do |o| %>
+				<%= a.name %>: <%= o.text_field :name %>
+			<% end %>
+		<% end %>
+		Quantity: <%= f.text_field :quantity %>
+		<%= f.submit "Save" %>
+	<% end %>
 </div>
 
 <div id="images" style='display: none;' class='product_tab'>

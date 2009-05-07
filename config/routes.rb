@@ -29,6 +29,8 @@ ActionController::Routing::Routes.draw do |map|
       admin.resources :orders
       admin.resources :products do |product|
         product.resources :product_images, :controller => :upload
+        product.resources :product_attributes
+        product.resources :product_options
       end
       admin.resources :components
       admin.resources :configurations, :controller => :configuration

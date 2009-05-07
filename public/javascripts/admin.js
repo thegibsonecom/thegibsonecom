@@ -1,6 +1,7 @@
 $('document').ready(function(){ 
 	tabMenuNav();
 	loadTab();
+	setupProductForms();
 });
 
 function tabMenuNav(){
@@ -20,6 +21,22 @@ function showTab (name) {
 function loadTab () {
     tab = String(window.location).split('#')[1];
     if(tab){showTab(tab.split('=')[1]);}
+}
+
+function setupProductForms () {
+    $('#product_attribute_ajax_form').submit(function(){
+        $.post(this.action,)
+        // $.ajax({
+        //     type: "POST",
+        //     url: this.action,
+        //     data: $(this).serialize(),
+        //     dataType: 'html',
+        //     success: function(data){
+        //         $('#product_attributes').html(data);
+        //     }
+        // });
+        return false;
+    })
 }
 
 // function tabMenuNav(){
