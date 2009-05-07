@@ -1,4 +1,4 @@
-<span id='general_span' class='product_tab_label'>General</span> | <span id='options_span' class='product_tab_label'>Options</span> | <span id='images_span' class='product_tab_label'>Images</span>
+<span id='general_span' class='product_tab_label'>General</span> | <span id='options_span' class='product_tab_label'>Options</span> | <span id='images_span' class='product_tab_label'>Images</span><br />
 <%= render :partial => "layouts/flash_bar" %>
 <div id="general" class='product_tab'>
 	<p> 
@@ -30,11 +30,12 @@
 	
 </div>
 
-<div id="images" style='display: none;' class='product_tab'>
-	<%= "There are no images for this product, upload one now!" if @product.product_images.blank? %>	
+<div id="images" style='display: none;' class='product_tab'><br />
+	<%= "There are no images for this product, upload one now!" if @product.product_images.blank? %><br />	
 	<table>
 	<%= render :partial => 'product_image', :collection => @product.product_images %>
-	</table><br /><br />
+	</table><br />
+	<h2>Add New Image</h2>
 	<% form_for [:admin, @product, @product.product_images.new], :html => { :multipart => true } do |f| %>
 		Image: <%= f.file_field :uploaded_data %><br/><br />
 		Description: <%= f.text_field :name %><br /><br />
