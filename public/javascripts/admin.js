@@ -1,13 +1,25 @@
 $('document').ready(function(){ 
-	tabMenuNav()
+	tabMenuNav();
+	loadTab();
 });
 
 function tabMenuNav(){
 	$('.product_tab_label').click(function(){
-		$('.product_tab').hide();
-		id = this.id.split('_');
-		$('#' + id[0]).show();	
+	    showTab(this.id.split('_'))	
 	});
+}
+
+function showTab (name) {
+    $('.product_tab').hide();
+	$('#product_tab_labels > .product_tab_label').removeClass('active');
+	tab = $('#' + name + '_span');
+	tab.addClass('active');
+	$('#' + name).show();
+}
+
+function loadTab () {
+    tab = String(window.location).split('#')[1];
+    if(tab){showTab(tab.split('=')[1]);}
 }
 
 // function tabMenuNav(){

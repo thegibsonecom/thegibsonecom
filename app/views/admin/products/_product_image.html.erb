@@ -1,4 +1,6 @@
 <tr>
-<td><%= link_to image_tag(product_image.public_filename(:thumb)), product_image.public_filename %> <%= link_to "[x] remove", admin_product_product_image_path(@product, product_image), :method => :delete %></td>
-<td><%= product_image.name %></td>
+	<td><%= link_to image_tag(product_image.public_filename(:thumb)), product_image.public_filename %> <%= link_to "[x] remove", admin_product_product_image_path(@product, product_image), :method => :delete %></td>
+</tr>
+<tr>
+	<td><%= product_image.name %></td>
 </tr>
