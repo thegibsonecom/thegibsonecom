@@ -24,17 +24,20 @@ function loadTab () {
 }
 
 function setupProductForms () {
-    $('#product_attribute_ajax_form').submit(function(){
-        $.post(this.action,)
-        // $.ajax({
-        //     type: "POST",
-        //     url: this.action,
-        //     data: $(this).serialize(),
-        //     dataType: 'html',
-        //     success: function(data){
-        //         $('#product_attributes').html(data);
-        //     }
-        // });
+    $('#product_option_ajax_form').submit(function(){
+        $('#product_option_errors').html('');
+        $.ajax({
+            type: "POST",
+            url: this.action,
+            data: $(this).serialize(),
+            dataType: 'html',
+            success: function(data){
+                $('#product_options').html(data);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                $('#product_option_errors').html(html);
+            }
+        });
         return false;
     })
 }

@@ -26,6 +26,7 @@
 		<%= render :partial => 'product_attribute', :collection => @product.product_attributes %>
 	</div>
 	<h3>Add new attribute:</h3>
+	<div id='product_attribute_errors'><%= error_messages_for(:product_attribute) %></div>
 	<% form_for [:admin, @product, @product.product_attributes.new], :html => {:id => "product_attribute_ajax_form"} do |f| %>
 		Name:<%= f.text_field :name %>
 		<%= f.submit "Save" %>
@@ -52,6 +53,7 @@
 		</tbody>
 	</table>
 	<h3>Add new variation:</h3>
+	<div id='product_option_errors'><%= error_messages_for(:product_option) %></div>
 	<% form_for [:admin, @product, @product.product_options.new], :html => {:id => "product_option_ajax_form"}  do |f| %>
 		<% @product.product_attributes.each do |a| %>
 			<% fields_for "product_option[product_attribute][#{a.id}]",a.product_attribute_values.new do |o| %>

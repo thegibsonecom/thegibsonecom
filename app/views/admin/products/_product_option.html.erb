@@ -3,4 +3,5 @@
 		<td><%= value.name %></td>
 	<% end %>
 	<td><%= product_option.quantity %></td>
+	<td><%= link_to "[x] remove", admin_product_product_option_path(@product,product_option), :method => :delete %></td>
 </tr>

@@ -4,13 +4,10 @@ class Admin::ProductAttributesController < ApplicationController
   def create
     @product_attribute = @product.product_attributes.new(params[:product_attribute])
     
-    respond_to do |format|
-      if @product_attribute.save
-        format.html { redirect_to admin_product_path(@product) }
-        format.js { render :partial => 'admin/products/product_attribute', :collection => @product.product_attributes }
-      else
-        format.js { render :text => @product_attribute.display_errors, :status => 403 }
-      end
+    if @product_attribute.save
+      redirect_to [:admin, @product]
+    else
+      render :controller => 'admin/products', :action => :show, :id => @product.id
     end
   end
   
