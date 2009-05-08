@@ -2,6 +2,7 @@
 <%= error_messages_for :product_images %>
 <% fields_for @product.product_images.new do |i| %>
 <p>
-<%= i.file_field :uploaded_data %>
+Image: <%= i.file_field :uploaded_data %><br /><br />
+Description: <%= i.text_field :name %>
 </p>
 <% end %>
