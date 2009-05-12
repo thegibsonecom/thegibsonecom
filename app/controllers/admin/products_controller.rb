@@ -48,4 +48,8 @@ private
     @product = Product.find(params[:id])
   end
   
+  def find_cart
+    session[:cart] ||= Cart.new
+  end
+  
 end

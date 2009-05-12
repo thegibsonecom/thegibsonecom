@@ -2,11 +2,13 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  
+  session :session_key => '_store_session_id'  
   helper :all # include all helpers, all the time
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
-  protect_from_forgery # :secret => '07a1f0bd4698bf3d304114202c9d12b1'
+  protect_from_forgery  :secret => '07a1f0bd4698bf3d304114202c9d12b1'
   
   before_filter :load_modules
   
